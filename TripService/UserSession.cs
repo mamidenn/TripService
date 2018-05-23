@@ -2,7 +2,7 @@
 
 namespace TripService
 {
-    public class UserSession
+    public class UserSession : IGetsLoggedInUser
     {
         private static readonly UserSession Instance = new UserSession();
 

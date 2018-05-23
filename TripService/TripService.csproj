@@ -44,12 +44,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exceptions\DependencyCallDuringUnitTestException.cs" />
+    <Compile Include="IGetsLoggedInUser.cs" />
+    <Compile Include="IGetsTrips.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Trip.cs" />
     <Compile Include="TripDao.cs" />
+    <Compile Include="TripRepository.cs" />
     <Compile Include="TripService.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Exceptions\UserNotLoggedInException.cs" />
+    <Compile Include="UserBuilder.cs" />
     <Compile Include="UserSession.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -6,11 +6,20 @@ namespace TripService
 {
     public class TripService
     {
+        private readonly IGetsLoggedInUser _userSession;
+        private readonly IGetsTrips _tripRepository;
+
+        public TripService(IGetsLoggedInUser userSession, IGetsTrips tripRepository)
+        {
+            _userSession = userSession;
+            _tripRepository = tripRepository;
+        }
+
         [PublicAPI]
         public IEnumerable<Trip> GetTripsByUser(User user)
         {
             IEnumerable<Trip> tripList = new List<Trip>();
-            User loggedUser = UserSession.GetInstance().GetLoggedUser();
+            User loggedUser = _userSession.GetLoggedUser();
             bool isFriend = false;
             if (loggedUser != null)
             {
@@ -25,7 +34,7 @@ namespace TripService
 
                 if (isFriend)
                 {
-                    tripList = TripDao.FindTripsByUser(user);
+                    tripList = _tripRepository.GetTripsByUser(user);
                 }
 
                 return tripList;
